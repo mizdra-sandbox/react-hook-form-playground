@@ -1,0 +1,40 @@
+{
+  "name": "app_name",
+  "description": "app_description",
+  "version": "0.0.0",
+  "repository": "https://github.com/mizdra/app_name.git",
+  "author": "mizdra <pp.mizdra@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "parcel build src/index.html",
+    "dev": "parcel src/index.html",
+    "check": "run-p -l -c 'check:tsc --pretty' 'check:eslint --color' check:prettier",
+    "check:tsc": "tsc --noEmit",
+    "check:eslint": "eslint --format codeframe 'src/**/*.{ts,tsx}'",
+    "check:prettier": "prettier --check 'src/**/*.{ts,tsx}'",
+    "deploy": "netlify deploy -d dist --prod",
+    "predeploy": "yarn run check && yarn run build"
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.14.0",
+    "@typescript-eslint/parser": "^2.14.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "netlify-cli": "^2.25.0",
+    "npm-run-all": "^4.1.5",
+    "parcel-bundler": "^1.12.4",
+    "prettier": "1.19.1",
+    "typescript": "^3.7.4"
+  },
+  "dependencies": {
+    "@types/react": "^16.9.17",
+    "@types/react-dom": "^16.9.4",
+    "react": "16.12.0",
+    "react-dom": "16.12.0"
+  }
+}
